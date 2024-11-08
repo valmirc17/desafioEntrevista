@@ -1,26 +1,29 @@
-# desafioEntrevista
+# ☁️Projeto Terraform: Infraestrutura de Rede e App Service na Azure
 
-Desafio Terraform Azure: Configuração de Rede com Private Endpoint e App Service (sem subnet privada)
-Objetivo: Criar uma infraestrutura na Azure com:
+## 📄Descrição
+Este projeto configura uma infraestrutura na Azure com o uso do Terraform, incluindo uma Virtual Network (VNet), um App Service em um ambiente privado, um Private Endpoint para comunicação interna e um Network Security Group (NSG) para controle de tráfego.
 
--Uma Virtual Network (VNet) com uma subnet pública.
 
--Um Azure App Service (Web App) hospedado nesta subnet pública.
+💻 **Recursos provisionados**
+* Virtual Network (VNet):
+    *Cria uma VNet chamada my-vnet com uma subnet pública configurada para abrigar o App Service e permitir o tráfego necessário para seu funcionamento.
+* App Service (Web App):
+    * Configura um App Service hospedado na subnet pública da VNet. Esse App Service será acessível apenas dentro da rede privada.
+* Private Endpoint:
+    * Configura um Private Endpoint para o App Service, permitindo acesso ao App Service apenas dentro da VNet. Isso garante que o tráfego seja exclusivamente interno.
+*Network Security Group (NSG):
+    * Configura um NSG para controlar o tráfego de rede, permitindo apenas a comunicação necessária entre a VNet e o App Service.
 
--Um Private Endpoint para o App Service (sem a necessidade de subnet privada).
+✔️ **Pré-requisitos**
+Conta ativa na Azure.
+Terraform instalado na sua máquina local.
+Permissões para criar recursos na Azure.
 
--Configuração de segurança para garantir que o tráfego seja restrito entre o App Service e a rede interna da VNet.
-
-Passos do Desafio:
--Criação de uma Virtual Network (VNet):
--Crie uma VNet chamada my-vnet com uma subnet pública.
--Criação de um App Service:
--Crie um App Service (Web App) na subnet pública da VNet.
--Criação de um Private Endpoint para o App Service:
-    Crie um Private Endpoint para o App Service.
-    O Private Endpoint será configurado de forma que o tráfego ao App Service será acessado apenas pela rede interna da VNet.
--Criação de um Network Security Group (NSG):
-    Crie um NSG (Network Security Group) para permitir tráfego apenas entre a VNet e o App Service.
--Uso de Variáveis e Outputs:
-    -Utilize variáveis para os nomes da VNet, da subnet, do App Service e do NSG.
-    -Defina outputs para o URL privado do App Service e o ID do Private Endpoint.
+<span>&#9881;</span> **Como executar o projeto**
+1. **Clone o Repositório:** Clone este repositório GitHub para sua máquina local.
+2. **Configure as Variáveis:** Edite o arquivo `terraform.tfvars` no diretório raiz do projeto e defina as variáveis de acordo com seu ambiente:
+   Obs.: Há um arquivo `terraform.tfvars` compactado para que possa ser utilizado em ambiente de desenvolvimento.
+4. **Inicialize o Terraform:** Abra um terminal no diretório raiz do projeto e execute os seguintes comandos:
+    * `terraform init`: Inicializa o Terraform e baixa os provedores necessários
+    * `terraform plan`: Gera um plano de execução que mostra as alterações que serão feitas
+    * `terraform apply --auto-approve`: Aplica as alterações, aprova automaticamente e provisiona os recursos na Azure
