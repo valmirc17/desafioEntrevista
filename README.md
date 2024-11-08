@@ -15,9 +15,9 @@ Este projeto configura uma infraestrutura na Azure com o uso do Terraform, inclu
     * Configura um NSG para controlar o tráfego de rede, permitindo apenas a comunicação necessária entre a VNet e o App Service.
 
 ✔️ **Pré-requisitos**
-Conta ativa na Azure.
-Terraform instalado na sua máquina local.
-Permissões para criar recursos na Azure.
+* Conta ativa na Azure.
+* Terraform instalado na sua máquina local.
+* Permissões para criar recursos na Azure.
 
 <span>&#9881;</span> **Como executar o projeto**
 1. **Clone o Repositório:** Clone este repositório GitHub para sua máquina local.
